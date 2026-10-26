@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back to the app</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0a0606; color: #e8dcc8; font: 16px/1.5 system-ui, sans-serif; text-align: center; padding: 16px; box-sizing: border-box; }
+  a { display: inline-block; margin-top: 16px; padding: 12px 22px; border-radius: 12px; background: #d4a24c; color: #1a1208; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <p>Trakt is connected. Taking you back to the app…</p>
+  <a id="back" href="#">Open the app</a>
+</main>
+<script>
+  // Trakt only returns to https:// pages, so this page passes the sign-in code on to the app.
+  var target = "nuvio://auth/trakt" + window.location.search;
+  document.getElementById("back").href = target;
+  window.location.replace(target);
+</script>
+</body>
+</html>
